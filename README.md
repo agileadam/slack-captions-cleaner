@@ -65,7 +65,7 @@ The script will output the cleaned text to stdout, which means you can:
 ### Options
 
 - `-f` or `--filler-words`: Remove filler words. If no words provided, uses defaults ("Hm.", "Mhm.")
-- `-r` or `--redact`: Replace specified words with "<REDACTED>"
+- `-r` or `--redact`: Replace specified words with "`<REDACTED>`"
 
 Examples:
 ```bash
