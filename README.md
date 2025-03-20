@@ -67,16 +67,16 @@ The script will output the cleaned text to stdout, which means you can:
 Examples:
 ```bash
 # Remove default filler words
-slack-captions-cleaner input.txt -f
+slack-captions-cleaner input.html -f
 
 # Remove custom filler words
-slack-captions-cleaner input.txt -f "Um" "Uh" "Like"
+slack-captions-cleaner input.html -f "Um" "Uh" "Like"
 
 # Redact specific words
-slack-captions-cleaner input.txt -r "password" "secret"
+slack-captions-cleaner input.html -r "password" "secret"
 
 # Combine options
-slack-captions-cleaner input.txt -f "Um" "Uh" -r "password" "secret"
+slack-captions-cleaner input.html -f "Um" "Uh" -r "password" "secret"
 ```
 
 When removing filler words:
