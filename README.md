@@ -1,6 +1,6 @@
 # Slack Captions Cleaner
 
-A simple Python script to clean up captions by removing timestamps and speaker labels.
+A simple Python script to clean up Slack Huddle captions.
 
 ## Getting Captions from Slack
 
