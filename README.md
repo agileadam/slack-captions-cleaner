@@ -27,7 +27,7 @@ A simple Python script to clean up Slack Huddle captions.
    
    or
 
-   ```
+   ```bash
    brew install pipx
    ```
 
@@ -40,26 +40,23 @@ A simple Python script to clean up Slack Huddle captions.
 
 ## Usage
 
-```bash
-slack-captions-cleaner input.txt
-```
-
 The script will output the cleaned text to stdout, which means you can:
 
 - Save the output to a file:
   ```bash
-  slack-captions-cleaner input.txt > output.txt
+  slack-captions-cleaner input.html > output.txt
   ```
 
 - View the output in a pager (like `less`):
   ```bash
-  slack-captions-cleaner input.txt | less
+  slack-captions-cleaner input.html | less
   ```
 
 - Pipe the output to other commands:
   ```bash
-  slack-captions-cleaner input.txt | grep "specific text"
-  slack-captions-cleaner input.txt | wc -l  # count lines
+  slack-captions-cleaner input.html | grep "specific text"
+  slack-captions-cleaner input.html | wc -l  # Count number of lines
+  slack-captions-cleaner input.html | pbcopy # Copy the lines to the clipboard
   ```
 
 ### Options
