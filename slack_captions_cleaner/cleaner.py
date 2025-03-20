@@ -12,16 +12,11 @@ def convert_html_to_text(html_content, remove_fillers=False, filler_words=None, 
     prev_speaker = None
     prev_message_type = None  # "message" or "event"
     current_message = ""
-    current_timestamp = None
     
     if filler_words is None:
         filler_words = ["Hm.", "Mhm."]
     
     for item in items:
-        timestamp_element = item.find('span', {'class': 'p-huddle_event_log__timestamp'})
-        if timestamp_element:
-            current_timestamp = timestamp_element.text.strip()
-        
         name_element = item.find('div', {'class': 'p-huddle_event_log__member_name'})
         if name_element:
             name = name_element.text.strip()
@@ -45,7 +40,7 @@ def convert_html_to_text(html_content, remove_fillers=False, filler_words=None, 
                         # Check if the word is a filler word (with or without a period)
                         is_filler = False
                         for filler in filler_words:
-                            if word == filler or word == filler + "." or word == filler + ". ":
+                            if word == filler or word == filler + "." or word == filler + " .":
                                 is_filler = True
                                 break
                         if not is_filler:
@@ -69,9 +64,9 @@ def convert_html_to_text(html_content, remove_fillers=False, filler_words=None, 
             if prev_speaker != name or prev_message_type != message_type:
                 if prev_speaker:
                     if prev_message_type == "message":
-                        output_text += f"{current_timestamp} {prev_speaker}: {current_message}\n\n"
+                        output_text += f"{prev_speaker}: {current_message}\n\n"
                     else:  # event
-                        output_text += f"{current_timestamp} {prev_speaker} {current_message}\n\n"
+                        output_text += f"{prev_speaker} {current_message}\n\n"
                 
                 current_message = content
                 prev_speaker = name
@@ -81,9 +76,9 @@ def convert_html_to_text(html_content, remove_fillers=False, filler_words=None, 
     
     if prev_speaker:
         if prev_message_type == "message":
-            output_text += f"{current_timestamp} {prev_speaker}: {current_message}\n\n"
+            output_text += f"{prev_speaker}: {current_message}\n\n"
         else:  # event
-            output_text += f"{current_timestamp} {prev_speaker} {current_message}\n\n"
+            output_text += f"{prev_speaker} {current_message}\n\n"
     
     return output_text
 

@@ -97,7 +97,6 @@ When redacting words:
 ## Features
 
 - Converts copied/pasted Slack huddle captions to clean, readable text
-- Preserves and formats timestamps at the start of each line (e.g., [00:12:00])
 - Maintains speaker names and formats them consistently (e.g., "Speaker Name: ")
 - Combines adjacent entries by the same speaker into single messages
 - Distinguishes between regular messages and event notifications
